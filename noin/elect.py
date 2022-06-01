@@ -23,7 +23,7 @@ with open('keys/key.pem', 'rb') as f:
         pem_data,
         password=b'some_kind_of_password'
     )
-    print(rkey)
+    print(rkey.decrypt())
 
 
 # print(load_pem_public_key(key))
