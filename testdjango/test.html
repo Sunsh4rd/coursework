@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script language="JavaScript">
+        function selectAll() {
+            checkboxes = document.getElementsByName('foo');
+            for (var i = 0, n = checkboxes.length; i < n; i++)
+                checkboxes[i].checked = true;
+            // document.getElementById('togle').checked = !source.checked;
+        }
+        function unselectAll() {
+            checkboxes = document.getElementsByName('foo');
+            for (var i = 0, n = checkboxes.length; i < n; i++)
+                checkboxes[i].checked = false;
+            // document.getElementById('untogle').checked = !source.checked;
+        }
+    </script>
+
+    <form>
+        <input type="button" onclick="selectAll(this)" value="Select All">
+        <input type="button" onclick="unselectAll(this)" value="Unselect All">
+        <!-- <button value="selectAllButton" onclick="toggle(this)">Select all<br /></button>
+            <button value="unselectAllButton" onclick="untoggle(this)">Unselect all<br /></button> -->
+        <!-- <input type="radio" id="togle" name="check" value="toggleAll" onClick="toggle(this)" />
+            <label for="togle">Toggle All<br /></label>
+            <input type="radio" id="untogle" name="check" value="untoggleAll" onClick="untoggle(this)" />
+            <label for="untogle">Untoggle All<br /></label> -->
+    </form>
+
+
+    <input type="checkbox" name="foo" value="bar1"> Bar 1<br />
+    <input type="checkbox" name="foo" value="bar2"> Bar 2<br />
+    <input type="checkbox" name="foo" value="bar3"> Bar 3<br />
+    <input type="checkbox" name="foo" value="bar4"> Bar 4<br />
+
+</body>
+
+</html>
+
+<!-- DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'test',
+        'USER': 'dbworker',
+        'PASSWORD': 'VeryDifficultPass',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+} -->
