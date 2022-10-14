@@ -1,7 +1,7 @@
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'poll/style.css' %}">
-
+{% if user.is_authenticated %}
 {% if question_list %}
 <ul>
     {% for question in question_list %}
@@ -10,4 +10,7 @@
 </ul>
 {% else %}
 <p>No polls are available.</p>
+{% endif %}
+{% else %}
+<p><a href="/login">Login please!</a></p>
 {% endif %}

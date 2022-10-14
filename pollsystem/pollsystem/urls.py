@@ -21,4 +21,5 @@ urlpatterns = [
     path('polls/', include('poll.urls')),
     path('signup/', signup, name='signup'),
     path('admin/', admin.site.urls),
+    path('', include('django.contrib.auth.urls')),
 ]
