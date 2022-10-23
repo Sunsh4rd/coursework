@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать опрос</title>
+</head>
+
+<body>
+    <script language="JavaScript">
+        function selectAll() {
+            checkboxes = document.getElementsByName('user');
+            for (var i = 0, n = checkboxes.length; i < n; i++)
+                checkboxes[i].checked = true;
+        }
+        function unselectAll() {
+            checkboxes = document.getElementsByName('user');
+            for (var i = 0, n = checkboxes.length; i < n; i++)
+                checkboxes[i].checked = false;
+        }
+        function addOption() {
+            const answers = document.getElementById("answers");
+            answers.innerHTML += `<p><label>Вариант ${answers.children.length + 1}</label> <input type="text" name="opt" value="" required=""></p>`;
+        }
+        function removeOption() {
+            const answers = document.getElementById("answers");
+            let lastString = `<p><label>Вариант ${answers.children.length}</label> <input type="text" name="opt" value="" required=""></p>`;
+            answers.innerHTML = answers.innerHTML.replace(lastString, '');
+        }
+    </script>
+    <form action="/create" method="post">
+        <p><label for="question">Вопрос: </label>
+            <textarea name="question" id="question" cols="30" rows="10"></textarea>
+
+        <div id="answers">
+            <p><label>Вариант 1</label> <input type="text" name="opt" value="" required></p>
+            <p><label>Вариант 2</label> <input type="text" name="opt" value="" required></p>
+        </div>
+        <button onclick="addOption()">Добавить вариант</button>
+        <button onclick="removeOption()">Удалить вариант</button>
+
+        <div id="users">
+            <p>Пользователи, допущенные до голосования:</p>
+            {% for u in users %}
+            <input type="checkbox" name="user" value="{{u.id}}">{{u.email}}<br>
+            {% endfor %}
+        </div>
+        <p>
+            <input type="button" onclick="selectAll()" value="Выбрать всех">
+            <input type="button" onclick="unselectAll()" value="Отменить выбор">
+        </p>
+        <input type="hidden" name="key" id="key">
+        <input type="text" name="signature" id="signature">
+        <p><input type="submit" value="Создать опрос">
+    </form>
+    <script src="/static/js/main.js"></script>
+
+</body>
+
+</html>

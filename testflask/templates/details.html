@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{poll.text}}</title>
+</head>
+
+<body>
+    {% if initiator %}
+    <form action="/polls/{{poll.id}}" method="post">
+        <p><a href="{{url_for('results', poll_id=poll.id)}}"><input type="submit" value="Завершить голосование"></a></p>
+    </form>
+    {% else %}
+    <form action="/polls/{{poll.id}}" method="post">
+        <p>{{poll.text}}</p>
+        <div id="answers">
+            {% for opt in poll.options %}
+            <input type="radio" name="opt" value="{{poll.options.index(opt)}}">{{opt}}<br>
+            {% endfor %}
+        </div>
+        <input type="hidden" name="key" id="key">
+        <input type="hidden" name="ballot" id="ballot">
+        <!-- <textarea name="key" id="key"></textarea> -->
+        <p><input type="submit" value="Проголосовать"></p>
+    </form>
+    <p><a href="{{url_for('results', poll_id=poll.id)}}"><input type="button" value="Посмотреть результаты"></a></p>
+    <script src="/static/js/main.js"></script>
+    {% endif %}
+</body>
+
+</html>

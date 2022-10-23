@@ -2,5 +2,9 @@
 
 {% block content %}
 {{ super() }}
-
+<div id="polls"></div>
+{% for p in polls %}
+<p><a href="{{url_for('poll_details', poll_id=p.id)}}">{{p.text}}</a></p>
+{% endfor %}
+</div>
 {% endblock %}

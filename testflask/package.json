@@ -1,0 +1,15 @@
+{
+  "name": "testflask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "openpgp": "^5.5.0",
+    "webpack": "^5.74.0"
+  }
+}

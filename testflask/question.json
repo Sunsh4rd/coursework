@@ -1,0 +1,8 @@
+{
+    "id":1,
+    "qeustion":"qeustion_text",
+    "allowed_users":[1,2,3],
+    "options":["opt1","opt2","opt3"],
+    "number_of_ballots":3,
+    "initiator":1
+}
