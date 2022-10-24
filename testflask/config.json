@@ -1,5 +1,5 @@
 {
     "SECRET_KEY": "c0749f2ce19b56ef86b3907a",
-    "SQLALCHEMY_DATABASE_URI": "postgresql://dbworker:VeryDifficultPass@localhost/polls",
+    "SQLALCHEMY_DATABASE_URI": "postgresql://dbgod:dbgodpass@localhost/polls",
     "SQLALCHEMY_TRACK_MODIFICATIONS": false
 }
